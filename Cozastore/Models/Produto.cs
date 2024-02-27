@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Routing.Patterns;
 
 namespace Cozastore.Models;
 
@@ -52,4 +53,7 @@ public class Produto
     public int CategoriaId { get; set; }
     [ForeignKey("CategoriaId")]
     public Categoria Categoria { get; set; }
+
+    public ICollection<Estoque> Estoque { get; set; }
+    
 }
