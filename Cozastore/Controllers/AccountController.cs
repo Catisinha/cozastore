@@ -1,4 +1,5 @@
 using System.Net.Mail;
+using System.Security.Claims;
 using CozaStore.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -72,8 +73,8 @@ public class AccountController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Logout()
     {
-        _logger.LogInformation($"Usuário {ClainTypes.Email} saiu do sistema!");
-        await _signInManager.SignInAsync();
+        _logger.LogInformation($"Usuário {ClaimTypes.Email} saiu do sistema!");
+        await _signInManager.SignOutAsync();
         return RedirectToAction ("Index", "Home");
     }
 
