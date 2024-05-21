@@ -148,7 +148,7 @@ namespace Cozastore.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+    
         private bool CorExists(int id)
         {
             return _context.Cores.Any(e => e.Id == id);
